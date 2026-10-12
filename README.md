@@ -10,7 +10,6 @@ azees-smart-tally/
 ├── server/
 │   ├── db.ts             # SQLite schema, indexes and database connection
 │   ├── index.ts           # Authenticated REST API, audit logging and backups
-│   └── seed.ts            # Repeat-safe example business data
 ├── src/
 │   ├── App.tsx            # Application shell, pages, forms and workflows
 │   ├── main.tsx           # React entry point and service-worker registration
@@ -49,13 +48,7 @@ npm.cmd run dev
 
 Open `http://localhost:5173` and sign in as `abdulazees3121@gmail.com` with the password from `.env`. The API listens on port 3001 and Vite proxies `/api` to it. Only the authorized email is accepted.
 
-Optional demo records:
-
-```powershell
-npm.cmd run seed
-```
-
-The seed command adds three ledgers, five transactions and three products only when the ledger table is empty. To start over, stop the server and remove the specific `data/smart-tally.sqlite`, `data/smart-tally.sqlite-wal`, and `data/smart-tally.sqlite-shm` files.
+The application starts with an empty business database. No demo ledgers, costs, transactions or inventory are created automatically.
 
 ## Build and production start
 
@@ -81,7 +74,7 @@ The repository contains a Render Blueprint (`render.yaml`), Vercel SPA configura
    `.env`, `data/`, and `backups/` are ignored; check that they are not included in the commit.
 2. **Render API:** In Render, choose **New → Blueprint** and select the repository. The Blueprint creates an always-on Starter web service and a persistent 1 GB disk mounted at `/opt/render/project/src/data`. During creation, set the prompted `AUTH_PASSWORD` to Azees' chosen secret and `CLIENT_ORIGIN` to the exact Vercel origin, for example `https://azees-tally.vercel.app` (no trailing slash). Render generates `JWT_SECRET`. Copy the API service URL, such as `https://azees-smart-tally-api.onrender.com`.
 3. **Vercel frontend:** Import the same GitHub repository as a Vite project. The included `vercel.json` sets the build and SPA fallback. In Vercel project settings, set `VITE_API_URL` to the Render API origin (for example `https://azees-smart-tally-api.onrender.com`), without a trailing slash, and deploy. Set or update Render's `CLIENT_ORIGIN` to the deployed Vercel origin, then redeploy the API if prompted.
-4. **Verify:** Open `https://<render-service>.onrender.com/api/health` and confirm `{"ok":true}`. Open the Vercel HTTPS URL, sign in as the authorized owner, check that the dashboard loads, and create a small test entry. Remove test data if appropriate. The hosted SQLite database starts empty; move existing records by downloading a portable JSON backup from the old app's **Settings → Download portable backup**, then uploading it through the deployed app's **Settings → Restore from JSON**.
+4. **Verify:** Open `https://<render-service>.onrender.com/api/health` and confirm `{"ok":true}`. Open the Vercel HTTPS URL, sign in as the authorized owner, and check that the dashboard loads. The hosted SQLite database starts empty. If you explicitly want to transfer records later, download a portable JSON backup from **Settings → Download portable backup** and restore it through **Settings → Restore from JSON**.
 5. **Android install:** Open the Vercel HTTPS URL in Chrome on Android, sign in, open the browser menu, and tap **Install app** or **Add to Home screen**. The app shell can load offline after first visit; accounting reads/writes still need the API connection.
 
 Choose the Vercel project slug `azees-tally` if you want the example address `https://azees-tally.vercel.app`. A Vercel custom project slug is subject to availability. HTTPS is provided automatically by the hosting platforms.
