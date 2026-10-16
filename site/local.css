@@ -1,0 +1,35 @@
+.hidden{display:none!important}
+.plain-icon{font-style:normal;line-height:1;display:inline-grid;place-items:center;flex:none}
+.brand .plain-icon,.login-mark .plain-icon{font-size:20px}
+.nav-item .plain-icon{width:18px;font-size:17px}
+.quick-icon .plain-icon{font-size:18px}
+.modal-backdrop{position:fixed;inset:0;z-index:60;background:rgba(13,29,22,.48);display:grid;place-items:center;padding:18px;overflow:auto}
+.entry-modal{width:min(680px,100%);max-height:min(92vh,900px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 22px 70px #09170f45;padding:22px}
+.modal-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:18px}
+.modal-head h2{font-size:20px;margin:6px 0 0}
+.modal-grid,.tool-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.entry-modal label,.tool-form label,.reset-controls label{display:grid;gap:6px;font-size:11px;font-weight:600;color:var(--ink)}
+.entry-modal input,.entry-modal select,.entry-modal textarea,.tool-form input,.tool-form select,.reset-controls select{width:100%;min-height:36px;border:1px solid var(--line);border-radius:7px;background:var(--input);color:var(--ink);padding:8px 10px;font-size:12px}
+.entry-modal textarea{min-height:78px;resize:vertical}
+.span-two{grid-column:1/-1}
+.modal-actions{display:flex;justify-content:flex-end;gap:9px;border-top:1px solid var(--line);padding-top:15px;margin-top:18px}
+.form-hint,.tool-result{grid-column:1/-1;margin:2px 0 0;color:var(--muted);font-size:11px}
+.tool-form{padding:14px}
+.tool-form .primary-button{grid-column:1/-1}
+.tool-result{font-weight:700;color:var(--green)}
+.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.note-card{position:relative;border-bottom:1px solid var(--line);padding:14px 46px 14px 2px}
+.note-card>div{display:flex;justify-content:space-between;gap:10px}
+.note-card small{color:var(--muted)}
+.note-card p{white-space:pre-wrap;font-size:12px;color:var(--muted);margin:8px 0 0}
+.note-card .row-action{position:absolute;right:0;top:10px}
+.backup-button>span:first-child{display:grid;place-items:center}
+.company-switch>.plain-icon{color:var(--muted)}
+.art-footer .plain-icon{margin-right:6px}
+.login-foot .plain-icon{margin-right:5px}
+.art-stats span{display:block}
+.filter-button{pointer-events:none}
+.status-pill i{display:inline-block}
+.tool-card{overflow:hidden}
+.sidebar-open{transform:translateX(0)}
+@media(max-width:700px){.modal-grid,.tools-grid{grid-template-columns:1fr}.entry-modal{padding:17px}.span-two{grid-column:auto}.modal-backdrop{padding:10px}.tool-form{grid-template-columns:1fr}}
