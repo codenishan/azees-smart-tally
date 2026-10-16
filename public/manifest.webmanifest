@@ -1,6 +1,6 @@
 {
-  "name": "Azees Smart Tally",
-  "short_name": "Azees Tally",
+  "name": "Smart Tally Mobile",
+  "short_name": "Smart Tally",
   "description": "Azees' private personal business accounting app.",
   "start_url": "/",
   "display": "standalone",

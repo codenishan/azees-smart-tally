@@ -2,15 +2,11 @@ services:
   - type: web
     name: azees-smart-tally-api
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm ci --include=dev && npm run build:server
     startCommand: npm start
     healthCheckPath: /api/health
     autoDeploy: true
-    disk:
-      name: azees-smart-tally-data
-      mountPath: /opt/render/project/src/data
-      sizeGB: 1
     envVars:
       - key: NODE_ENV
         value: production
