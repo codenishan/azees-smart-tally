@@ -8,7 +8,7 @@ The public application URL is:
 
 **https://codenishan.github.io/azees-smart-tally/**
 
-The GitHub Actions workflow publishes only the contents of `site/`, so source files, local databases and backup folders are not part of the deployed artifact. It enables GitHub Pages for the repository on its first deployment. Every push to `main` or `pages-static` deploys the site; the Actions tab shows the deployment and its URL.
+The GitHub Actions workflow publishes only the contents of `site/`, so source files, local databases and backup folders are not part of the deployed artifact. For the first deployment, enable Pages in **Repository Settings → Pages → Build and deployment → Source → GitHub Actions**; this repository is now configured. Every push to `main` or `pages-static` deploys the site; the Actions tab shows the deployment and its URL.
 
 For local testing, serve the `site/` directory with any static web server and open its `index.html` over `http://localhost`; browser storage and the offline app shell require a secure context (HTTPS or localhost).
 
